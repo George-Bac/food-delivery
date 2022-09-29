@@ -12,5 +12,7 @@
   <color name="dark_orange">#DD3D00</color>
   <color name="gray1">#C8C5C5</color>
   <color name="gray2">#ECECEC</color>
+  <color name="gray3">#676767</color>
   <color name="pink">#FFC5AB</color>
+  <color name="light_gray">#F6F6F6</color>
 </resources>
