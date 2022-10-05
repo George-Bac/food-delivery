@@ -15,4 +15,9 @@
   <color name="gray3">#676767</color>
   <color name="pink">#FFC5AB</color>
   <color name="light_gray">#F6F6F6</color>
+  <color name="yellow">#FEF4E5</color>
+  <color name="violet">#F5E5FE</color>
+  <color name="light_blue">#E5F1FE</color>
+  <color name="light_green">#EBFEE5</color>
+  <color name="light_pink">#F9E4E4</color>
 </resources>

@@ -1,10 +1,12 @@
-package com.endava.fooddelivery;
+package com.endava.fooddelivery.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.endava.fooddelivery.R;
 
 public class IntroActivity extends AppCompatActivity {
 
