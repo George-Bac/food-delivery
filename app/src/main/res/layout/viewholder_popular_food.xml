@@ -8,7 +8,7 @@
   android:elevation="3dp">
 
   <TextView
-    android:id="@+id/addButton"
+    android:id="@+id/itemAddButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -21,9 +21,9 @@
     android:textColor="@color/white"
     android:textStyle="bold"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="@+id/pic"
-    app:layout_constraintStart_toStartOf="@+id/pic"
-    app:layout_constraintTop_toBottomOf="@+id/fee" />
+    app:layout_constraintEnd_toEndOf="@+id/itemPic"
+    app:layout_constraintStart_toStartOf="@+id/itemPic"
+    app:layout_constraintTop_toBottomOf="@+id/itemFee" />
 
   <TextView
     android:id="@+id/textView13"
@@ -33,34 +33,34 @@
     android:text="$"
     android:textColor="@color/orange_red"
     android:textSize="14sp"
-    app:layout_constraintBottom_toBottomOf="@+id/fee"
-    app:layout_constraintEnd_toStartOf="@+id/fee"
-    app:layout_constraintTop_toTopOf="@+id/fee" />
+    app:layout_constraintBottom_toBottomOf="@+id/itemFee"
+    app:layout_constraintEnd_toStartOf="@+id/itemFee"
+    app:layout_constraintTop_toTopOf="@+id/itemFee" />
 
   <TextView
-    android:id="@+id/fee"
+    android:id="@+id/itemFee"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="0.0"
     android:textColor="@color/dark_indigo"
     android:textSize="18sp"
-    app:layout_constraintEnd_toEndOf="@+id/pic"
-    app:layout_constraintStart_toStartOf="@+id/pic"
-    app:layout_constraintTop_toBottomOf="@+id/pic" />
+    app:layout_constraintEnd_toEndOf="@+id/itemPic"
+    app:layout_constraintStart_toStartOf="@+id/itemPic"
+    app:layout_constraintTop_toBottomOf="@+id/itemPic" />
 
   <ImageView
-    android:id="@+id/pic"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:id="@+id/itemPic"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textView9"
+    app:layout_constraintTop_toBottomOf="@+id/itemTitle"
     app:srcCompat="@drawable/pop_1" />
 
   <TextView
-    android:id="@+id/textView9"
+    android:id="@+id/itemTitle"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="4dp"
