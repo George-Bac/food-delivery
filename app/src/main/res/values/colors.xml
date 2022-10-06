@@ -20,4 +20,6 @@
   <color name="light_blue">#E5F1FE</color>
   <color name="light_green">#EBFEE5</color>
   <color name="light_pink">#F9E4E4</color>
+  <color name="dark_indigo">#373B54</color>
+  <color name="orange_red">#FF3D00</color>
 </resources>
