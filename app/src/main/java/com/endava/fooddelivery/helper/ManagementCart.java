@@ -54,11 +54,11 @@ public class ManagementCart {
       tinyDB.putListObject("CartList", foods);
       changeNumberItemsListener.getChanged();
    }
-   
+
    public Double getTotalPrice() {
       List<Food> foods = getCartList();
-      Double price = 0.0;
-      for(Food food : foods) {
+      double price = 0.0;
+      for (Food food : foods) {
          price += food.getFee() * food.getNumberInCart();
       }
       return price;

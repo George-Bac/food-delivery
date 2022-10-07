@@ -68,6 +68,7 @@
           android:id="@+id/itemsPriceTextView"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginEnd="10dp"
           android:text="$0"
           android:textColor="@color/dark_indigo"
           android:textSize="18sp"
@@ -97,6 +98,7 @@
           android:id="@+id/deliveryPriceTextView"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginEnd="10dp"
           android:text="$0"
           android:textColor="@color/dark_indigo"
           android:textSize="18sp"
@@ -126,6 +128,7 @@
           android:id="@+id/taxPriceTextView"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginEnd="10dp"
           android:text="$0"
           android:textColor="@color/dark_indigo"
           android:textSize="18sp"
@@ -155,6 +158,7 @@
           android:id="@+id/totalPriceTextView"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginEnd="10dp"
           android:text="$0"
           android:textColor="@color/dark_indigo"
           android:textSize="22sp"
@@ -326,6 +330,7 @@
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/cartButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:backgroundTint="@color/orange"

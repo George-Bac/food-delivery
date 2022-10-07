@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import com.endava.fooddelivery.R;
 import com.endava.fooddelivery.adapter.CategoryRecyclerViewAdapter;
 import com.endava.fooddelivery.adapter.FoodRecyclerViewAdapter;
 import com.endava.fooddelivery.model.Category;
 import com.endava.fooddelivery.model.Food;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
       initViews();
       configureRecyclerViewAdapter(recyclerViewCategories, categoryRecyclerViewAdapter);
       configureRecyclerViewAdapter(recyclerViewFood, foodRecyclerViewAdapter);
+      defineBottomNavigation();
    }
 
    private void initViews() {
@@ -49,5 +53,12 @@ public class MainActivity extends AppCompatActivity {
    private void configureRecyclerViewAdapter(RecyclerView recyclerView, RecyclerView.Adapter recyclerViewAdapter) {
       recyclerView.setAdapter(recyclerViewAdapter);
       recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+   }
+
+   private void defineBottomNavigation() {
+      FloatingActionButton cartButton = findViewById(R.id.cartButton);
+      LinearLayout homeButton = findViewById(R.id.homeButton);
+      cartButton.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
+      homeButton.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, MainActivity.class)));
    }
 }

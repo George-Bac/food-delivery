@@ -1,5 +1,6 @@
 package com.endava.fooddelivery.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +24,9 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerVi
    private ManagementCart managementCart;
    private ChangeNumberItemsListener changeNumberItemsListener;
 
-   public CartRecyclerViewAdapter(List<Food> foods, ManagementCart managementCart, ChangeNumberItemsListener changeNumberItemsListener) {
+   public CartRecyclerViewAdapter(List<Food> foods, Context context, ChangeNumberItemsListener changeNumberItemsListener) {
       this.foods = foods;
-      this.managementCart = managementCart;
+      this.managementCart = new ManagementCart(context);
       this.changeNumberItemsListener = changeNumberItemsListener;
    }
 
