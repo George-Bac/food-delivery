@@ -18,8 +18,12 @@ public class ManagementCart {
       this.tinyDB = new TinyDB(context);
    }
 
+   public List<Food> getCartList() {
+      return tinyDB.getListObject("CartList");
+   }
+
    public void insertFood(Food item) {
-      List<Food> foods = tinyDB.getListObject("CartList");
+      List<Food> foods = getCartList();
       boolean existsAlready = false;
       int numberOfItems = 0;
       for (int i = 0; i < foods.size(); i++) {
@@ -52,7 +56,7 @@ public class ManagementCart {
    }
    
    public Double getTotalPrice() {
-      List<Food> foods = tinyDB.getListObject("CartList");
+      List<Food> foods = getCartList();
       Double price = 0.0;
       for(Food food : foods) {
          price += food.getFee() * food.getNumberInCart();
