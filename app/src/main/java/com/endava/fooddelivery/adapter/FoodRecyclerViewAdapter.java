@@ -1,5 +1,6 @@
 package com.endava.fooddelivery.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.endava.fooddelivery.R;
+import com.endava.fooddelivery.activity.DetailsActivity;
 import com.endava.fooddelivery.model.Category;
 import com.endava.fooddelivery.model.Food;
 
@@ -39,6 +41,11 @@ public class FoodRecyclerViewAdapter extends RecyclerView.Adapter<FoodRecyclerVi
       viewHolder.itemFee.setText(String.valueOf(popularFood.get(position).getFee()));
       int drawableResourceId = viewHolder.itemView.getContext().getResources().getIdentifier(popularFood.get(position).getPic(), "drawable", viewHolder.itemView.getContext().getPackageName());
       Glide.with(viewHolder.itemView.getContext()).load(drawableResourceId).into(viewHolder.itemPic);
+      viewHolder.itemAddButton.setOnClickListener(view -> {
+         Intent intent = new Intent(viewHolder.itemView.getContext(), DetailsActivity.class);
+         intent.putExtra("food", popularFood.get(position));
+         viewHolder.itemView.getContext().startActivity(intent);
+      });
    }
 
    @Override

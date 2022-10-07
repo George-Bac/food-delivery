@@ -4,6 +4,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:focusable="true"
+  android:focusableInTouchMode="true"
   tools:context=".activity.MainActivity">
 
   <ScrollView
@@ -277,6 +279,7 @@
             android:textAlignment="center"
             android:textColor="@color/gray3"
             android:textSize="12sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -301,6 +304,7 @@
             android:textAlignment="center"
             android:textColor="@color/gray3"
             android:textSize="12sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -325,6 +329,7 @@
             android:textAlignment="center"
             android:textColor="@color/gray3"
             android:textSize="12sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -349,6 +354,7 @@
             android:textAlignment="center"
             android:textColor="@color/gray3"
             android:textSize="12sp" />
+
         </LinearLayout>
 
       </LinearLayout>

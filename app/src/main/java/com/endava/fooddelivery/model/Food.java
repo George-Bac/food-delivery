@@ -2,9 +2,10 @@ package com.endava.fooddelivery.model;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Food {
+public class Food implements Serializable {
 
    private String title;
    private String pic;

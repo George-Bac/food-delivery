@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.endava.fooddelivery.R;
+import com.endava.fooddelivery.helper.ManagementCart;
 import com.endava.fooddelivery.model.Food;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -16,12 +17,14 @@ public class DetailsActivity extends AppCompatActivity {
    private ImageView detailsFoodPic, minusButton, plusButton;
    private Food food;
    private Integer numberOrder = 1;
+   private ManagementCart managementCart;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_details);
 
+      managementCart = new ManagementCart(this);
       initViews();
       getBundle();
    }
@@ -50,7 +53,11 @@ public class DetailsActivity extends AppCompatActivity {
       plusButton.setOnClickListener(view -> orderProductQuantityTextView.setText(String.valueOf(++numberOrder)));
       minusButton.setOnClickListener(view -> {
          if (numberOrder > 1) numberOrder--;
-         orderProductQuantityTextView.setText(String.valueOf(--numberOrder));
+         orderProductQuantityTextView.setText(String.valueOf(numberOrder));
+      });
+      addToCartButton.setOnClickListener(view -> {
+         food.setNumberInCart(numberOrder);
+         managementCart.insertFood(food);
       });
    }
 }
