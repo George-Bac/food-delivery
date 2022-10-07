@@ -3,9 +3,10 @@ package com.endava.fooddelivery.helper;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.endava.fooddelivery.listener.ChangeNumberItemsListener;
 import com.endava.fooddelivery.model.Food;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ManagementCart {
 
@@ -18,7 +19,7 @@ public class ManagementCart {
    }
 
    public void insertFood(Food item) {
-      ArrayList<Food> foods = tinyDB.getListObject("CartList");
+      List<Food> foods = tinyDB.getListObject("CartList");
       boolean existsAlready = false;
       int numberOfItems = 0;
       for (int i = 0; i < foods.size(); i++) {
@@ -32,5 +33,30 @@ public class ManagementCart {
       else foods.add(item);
       tinyDB.putListObject("CartList", foods);
       Toast.makeText(context, "Added to your cart", Toast.LENGTH_SHORT).show();
+   }
+
+   public void incrementNumberFoodItem(List<Food> foods, int position, ChangeNumberItemsListener changeNumberItemsListener) {
+      foods.get(position).setNumberInCart(foods.get(position).getNumberInCart() + 1);
+      tinyDB.putListObject("CartList", foods);
+      changeNumberItemsListener.getChanged();
+   }
+
+   public void decrementNumberFoodItem(List<Food> foods, int position, ChangeNumberItemsListener changeNumberItemsListener) {
+      if (foods.get(position).getNumberInCart() == 1) {
+         foods.remove(position);
+      } else {
+         foods.get(position).setNumberInCart(foods.get(position).getNumberInCart() - 1);
+      }
+      tinyDB.putListObject("CartList", foods);
+      changeNumberItemsListener.getChanged();
+   }
+   
+   public Double getTotalPrice() {
+      List<Food> foods = tinyDB.getListObject("CartList");
+      Double price = 0.0;
+      for(Food food : foods) {
+         price += food.getFee() * food.getNumberInCart();
+      }
+      return price;
    }
 }

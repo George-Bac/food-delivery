@@ -38,6 +38,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -203,15 +204,15 @@ public class TinyDB {
    }
 
    /**
-    * Get parsed ArrayList of Integers from SharedPreferences at 'key'
+    * Get parsed List of Integers from SharedPreferences at 'key'
     *
     * @param key SharedPreferences key
-    * @return ArrayList of Integers
+    * @return List of Integers
     */
-   public ArrayList<Integer> getListInt(String key) {
+   public List<Integer> getListInt(String key) {
       String[] myList = TextUtils.split(preferences.getString(key, ""), "‚‗‚");
-      ArrayList<String> arrayToList = new ArrayList<String>(Arrays.asList(myList));
-      ArrayList<Integer> newList = new ArrayList<Integer>();
+      List<String> arrayToList = new ArrayList<>(Arrays.asList(myList));
+      List<Integer> newList = new ArrayList<>();
 
       for (String item : arrayToList)
          newList.add(Integer.parseInt(item));
@@ -257,15 +258,15 @@ public class TinyDB {
    }
 
    /**
-    * Get parsed ArrayList of Double from SharedPreferences at 'key'
+    * Get parsed List of Double from SharedPreferences at 'key'
     *
     * @param key SharedPreferences key
-    * @return ArrayList of Double
+    * @return List of Double
     */
-   public ArrayList<Double> getListDouble(String key) {
+   public List<Double> getListDouble(String key) {
       String[] myList = TextUtils.split(preferences.getString(key, ""), "‚‗‚");
-      ArrayList<String> arrayToList = new ArrayList<String>(Arrays.asList(myList));
-      ArrayList<Double> newList = new ArrayList<Double>();
+      List<String> arrayToList = new ArrayList<>(Arrays.asList(myList));
+      List<Double> newList = new ArrayList<Double>();
 
       for (String item : arrayToList)
          newList.add(Double.parseDouble(item));
@@ -274,15 +275,15 @@ public class TinyDB {
    }
 
    /**
-    * Get parsed ArrayList of Integers from SharedPreferences at 'key'
+    * Get parsed List of Integers from SharedPreferences at 'key'
     *
     * @param key SharedPreferences key
-    * @return ArrayList of Longs
+    * @return List of Longs
     */
-   public ArrayList<Long> getListLong(String key) {
+   public List<Long> getListLong(String key) {
       String[] myList = TextUtils.split(preferences.getString(key, ""), "‚‗‚");
-      ArrayList<String> arrayToList = new ArrayList<String>(Arrays.asList(myList));
-      ArrayList<Long> newList = new ArrayList<Long>();
+      List<String> arrayToList = new ArrayList<String>(Arrays.asList(myList));
+      List<Long> newList = new ArrayList<Long>();
 
       for (String item : arrayToList)
          newList.add(Long.parseLong(item));
@@ -301,12 +302,12 @@ public class TinyDB {
    }
 
    /**
-    * Get parsed ArrayList of String from SharedPreferences at 'key'
+    * Get parsed List of String from SharedPreferences at 'key'
     *
     * @param key SharedPreferences key
-    * @return ArrayList of String
+    * @return List of String
     */
-   public ArrayList<String> getListString(String key) {
+   public List<String> getListString(String key) {
       return new ArrayList<String>(Arrays.asList(TextUtils.split(preferences.getString(key, ""), "‚‗‚")));
    }
 
@@ -321,14 +322,14 @@ public class TinyDB {
    }
 
    /**
-    * Get parsed ArrayList of Boolean from SharedPreferences at 'key'
+    * Get parsed List of Boolean from SharedPreferences at 'key'
     *
     * @param key SharedPreferences key
-    * @return ArrayList of Boolean
+    * @return List of Boolean
     */
-   public ArrayList<Boolean> getListBoolean(String key) {
-      ArrayList<String> myList = getListString(key);
-      ArrayList<Boolean> newList = new ArrayList<Boolean>();
+   public List<Boolean> getListBoolean(String key) {
+      List<String> myList = getListString(key);
+      List<Boolean> newList = new ArrayList<Boolean>();
 
       for (String item : myList) {
          if (item.equals("true")) {
@@ -342,11 +343,11 @@ public class TinyDB {
    }
 
 
-   public ArrayList<Food> getListObject(String key) {
+   public List<Food> getListObject(String key) {
       Gson gson = new Gson();
 
-      ArrayList<String> objStrings = getListString(key);
-      ArrayList<Food> playerList = new ArrayList<Food>();
+      List<String> objStrings = getListString(key);
+      List<Food> playerList = new ArrayList<Food>();
 
       for (String jObjString : objStrings) {
          Food player = gson.fromJson(jObjString, Food.class);
@@ -380,12 +381,12 @@ public class TinyDB {
    }
 
    /**
-    * Put ArrayList of Integer into SharedPreferences with 'key' and save
+    * Put List of Integer into SharedPreferences with 'key' and save
     *
     * @param key     SharedPreferences key
-    * @param intList ArrayList of Integer to be added
+    * @param intList List of Integer to be added
     */
-   public void putListInt(String key, ArrayList<Integer> intList) {
+   public void putListInt(String key, List<Integer> intList) {
       checkForNullKey(key);
       Integer[] myIntList = intList.toArray(new Integer[intList.size()]);
       preferences.edit().putString(key, TextUtils.join("‚‗‚", myIntList)).apply();
@@ -403,12 +404,12 @@ public class TinyDB {
    }
 
    /**
-    * Put ArrayList of Long into SharedPreferences with 'key' and save
+    * Put List of Long into SharedPreferences with 'key' and save
     *
     * @param key      SharedPreferences key
-    * @param longList ArrayList of Long to be added
+    * @param longList List of Long to be added
     */
-   public void putListLong(String key, ArrayList<Long> longList) {
+   public void putListLong(String key, List<Long> longList) {
       checkForNullKey(key);
       Long[] myLongList = longList.toArray(new Long[longList.size()]);
       preferences.edit().putString(key, TextUtils.join("‚‗‚", myLongList)).apply();
@@ -437,12 +438,12 @@ public class TinyDB {
    }
 
    /**
-    * Put ArrayList of Double into SharedPreferences with 'key' and save
+    * Put List of Double into SharedPreferences with 'key' and save
     *
     * @param key        SharedPreferences key
-    * @param doubleList ArrayList of Double to be added
+    * @param doubleList List of Double to be added
     */
-   public void putListDouble(String key, ArrayList<Double> doubleList) {
+   public void putListDouble(String key, List<Double> doubleList) {
       checkForNullKey(key);
       Double[] myDoubleList = doubleList.toArray(new Double[doubleList.size()]);
       preferences.edit().putString(key, TextUtils.join("‚‗‚", myDoubleList)).apply();
@@ -461,12 +462,12 @@ public class TinyDB {
    }
 
    /**
-    * Put ArrayList of String into SharedPreferences with 'key' and save
+    * Put List of String into SharedPreferences with 'key' and save
     *
     * @param key        SharedPreferences key
-    * @param stringList ArrayList of String to be added
+    * @param stringList List of String to be added
     */
-   public void putListString(String key, ArrayList<String> stringList) {
+   public void putListString(String key, List<String> stringList) {
       checkForNullKey(key);
       String[] myStringList = stringList.toArray(new String[stringList.size()]);
       preferences.edit().putString(key, TextUtils.join("‚‗‚", myStringList)).apply();
@@ -484,14 +485,14 @@ public class TinyDB {
    }
 
    /**
-    * Put ArrayList of Boolean into SharedPreferences with 'key' and save
+    * Put List of Boolean into SharedPreferences with 'key' and save
     *
     * @param key      SharedPreferences key
-    * @param boolList ArrayList of Boolean to be added
+    * @param boolList List of Boolean to be added
     */
-   public void putListBoolean(String key, ArrayList<Boolean> boolList) {
+   public void putListBoolean(String key, List<Boolean> boolList) {
       checkForNullKey(key);
-      ArrayList<String> newList = new ArrayList<String>();
+      List<String> newList = new ArrayList<String>();
 
       for (Boolean item : boolList) {
          if (item) {
@@ -516,10 +517,10 @@ public class TinyDB {
       putString(key, gson.toJson(obj));
    }
 
-   public void putListObject(String key, ArrayList<Food> playerList) {
+   public void putListObject(String key, List<Food> playerList) {
       checkForNullKey(key);
       Gson gson = new Gson();
-      ArrayList<String> objStrings = new ArrayList<String>();
+      List<String> objStrings = new ArrayList<String>();
       for (Food player : playerList) {
          objStrings.add(gson.toJson(player));
       }
